@@ -1,0 +1,31 @@
+@startuml
+title Course Grading Process
+
+actor Lecturer as L
+participant "Grading Controller" as GC
+participant "Grading Service" as GS
+database "Grades Database" as GD
+participant "Student Records" as SR
+
+L -> GC : submit grades
+activate GC
+GC -> GS : process grade submission
+activate GS
+GS -> GD : store grades
+activate GD
+GD --> GS : confirm storage
+deactivate GD
+GS -> SR : update student records
+activate SR
+SR -> GD : retrieve student data
+activate GD
+GD --> SR : student data
+deactivate GD
+SR --> GS : student records updated
+deactivate SR
+GS --> GC : grading complete
+deactivate GS
+GC --> L : return submission status
+deactivate GC
+
+@enduml

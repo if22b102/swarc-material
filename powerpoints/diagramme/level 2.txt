@@ -1,0 +1,15 @@
+@startuml
+package "Course Management" {
+  [Course Scheduler] as CS
+  [Enrollment System] as ES
+  [Curriculum Database] as CD
+  [Course API] as CA
+
+  [CS] --> [ES]
+  [CS] .right.> [CD] : reads/writes
+  [ES] .down.> [CD] : reads/writes
+  [CA] --> [CS]
+  [CA] --> [ES]
+}
+
+@enduml

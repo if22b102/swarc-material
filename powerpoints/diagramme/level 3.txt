@@ -1,0 +1,12 @@
+@startuml
+package "Enrollment System" {
+  [Enrollment Processor] as EP
+  [Student Records] as SR
+  [Course Catalog] as CC
+  [Enrollment API] as EA
+
+  [EP] .right.> [SR] : updates
+  [EP] .down.> [CC] : queries
+  [EA] --> [EP]
+}
+@enduml

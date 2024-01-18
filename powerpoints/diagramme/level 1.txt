@@ -1,0 +1,25 @@
+@startuml
+package "University Management System" {
+  [User Management] as UM
+  [Course Management] as CM
+  [Faculty Management] as FM
+  [Attendance Management] as AM
+  [Grades Management] as GM
+  [Billing & Payment Management] as BPM
+  [Reporting & Analytics] as RA
+
+  [UM] --> [CM]
+  [UM] --> [FM]
+  [UM] --> [AM]
+  [CM] --> [GM]
+  [FM] --> [AM]
+  [FM] --> [GM]
+  [AM] --> [RA]
+  [GM] --> [RA]
+  [BPM] --> [RA]
+}
+
+[External Systems] --> [UM]
+[External Systems] --> [BPM]
+
+@enduml

@@ -1,0 +1,17 @@
+@startmindmap
+skinparam mindmapBackgroundColor transparent
+skinparam mindmapNodeBackgroundColor SkyBlue
+skinparam mindmapNodeBorderColor Black
+skinparam mindmapArrowColor Black
+skinparam mindmapNodeFontColor Black
+skinparam mindmapNodeFontSize 14
+skinparam mindmapNodeFontStyle bold
+skinparam arrowThickness 2
+
++ Qualities
+++ Scalability : Ability to handle increased load
+++ Security : Protection against unauthorized access
+++ Reliability : Consistent and accurate functioning
+++ Usability : Ease of use and intuitive design
+++ Maintainability : Ease of making changes and updates
+@endmindmap

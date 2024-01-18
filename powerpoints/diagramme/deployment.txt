@@ -1,0 +1,61 @@
+@startuml
+scale 1.5
+
+skinparam rectangle {
+    BackgroundColor<<device>> Wheat
+    BorderColor Black
+    Shadowing false
+}
+
+skinparam database {
+    BackgroundColor SkyBlue
+    BorderColor Black
+    Shadowing false
+}
+
+skinparam node {
+    BackgroundColor LightYellow
+    BorderColor Black
+    Shadowing false
+}
+
+node "Development Environment" {
+  [UMS API] as DevAPI
+  [UMS Frontend] as DevFrontend
+  note right of DevAPI : Development version of API
+  note right of DevFrontend : Development version of Frontend
+}
+
+node "Production Server" {
+  [UMS.jar] as UMSProd
+  note right of UMSProd : Production compiled artifact
+}
+
+node "Database Server" {
+  database "UMS Database" as UMSDB
+  note right of UMSDB : Stores all persistent data
+}
+
+DevAPI --> UMSProd : "compiles into"
+DevFrontend --> UMSProd : "compiles into"
+UMSProd --> UMSDB : "reads/writes data"
+
+node "Administrator's Device" <<device>> {
+  [Admin Browser] as AdminB
+  note right of AdminB : Accesses UMS Backend
+}
+
+node "Student's Device" <<device>> {
+  [Student Browser] as StudentB
+  note right of StudentB : Accesses UMS Frontend
+}
+
+node "Faculty's Device" <<device>> {
+  [Faculty Browser] as FacultyB
+  note right of FacultyB : Accesses UMS Backend
+}
+
+AdminB --> UMSProd : "interacts with"
+StudentB --> UMSProd : "interacts with"
+FacultyB --> UMSProd : "interacts with"
+@enduml

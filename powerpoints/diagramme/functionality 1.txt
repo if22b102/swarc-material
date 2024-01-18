@@ -1,0 +1,30 @@
+@startuml
+title Student Enrollment Process
+
+actor Student as S
+participant "Enrollment Controller" as EC
+participant "Enrollment Service" as ES
+database "Enrollment Database" as ED
+participant "Course Management System" as CMS
+
+S -> EC : request enrollment in course
+activate EC
+EC -> ES : validate student data
+activate ES
+ES -> ED : check course availability
+activate ED
+ED --> ES : course availability status
+deactivate ED
+ES --> EC : validation result
+deactivate ES
+EC -> CMS : enroll student to course
+activate CMS
+CMS -> ED : update course data
+activate ED
+ED --> CMS : confirm update
+deactivate ED
+CMS --> EC : enrollment success
+deactivate CMS
+EC --> S : return enrollment status
+deactivate EC
+@enduml

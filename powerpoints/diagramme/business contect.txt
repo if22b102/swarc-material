@@ -1,0 +1,31 @@
+@startuml
+
+!define RECTANGLE class
+
+package "University Management System (RUMS)" {
+  RECTANGLE RUMS
+}
+
+RECTANGLE Student
+RECTANGLE Faculty
+RECTANGLE Administrator
+RECTANGLE PaymentGateway
+RECTANGLE EmailService
+RECTANGLE StudentInformationSystem
+
+Student -down-> RUMS : Uses
+Faculty -down-> RUMS : Uses
+Administrator -down-> RUMS : Uses
+
+RUMS -right-> PaymentGateway : Integrates
+RUMS -right-> EmailService : Integrates
+RUMS -right-> StudentInformationSystem : Integrates
+
+legend right
+  Description:
+  RUMS is the core system that interacts with various stakeholders and external systems.
+  It serves students, faculty, and administrators, providing a platform to manage academic and administrative activities.
+  It integrates with Payment Gateway for financial transactions, Email Service for notifications, and Student Information System for academic data.
+endlegend
+
+@enduml
